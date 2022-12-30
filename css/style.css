@@ -1,31 +1,40 @@
 @font-face {
-    font-family: Martyric ;
+    font-family: Martyric;
     src: url(../fonts/Martyric.ttf);
 }
+
 @font-face {
-    font-family: Retro ;
+    font-family: Retro;
     src: url(../fonts/Retro.ttf);
 }
+
 @font-face {
     font-family: Mai;
     src: url(../fonts/Mai.ttf);
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
 }
-body{
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #424141;
 }
 
-
+/*cabecalho do Game*/
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 50px;
+    width: 100%;
     background: #202020;
     margin-bottom: 55px;
 }
@@ -39,7 +48,7 @@ header {
     text-align: center;
     background: #df620e;
     padding: 5px 20px;
-    
+
 }
 
 .nomeJogador {
@@ -49,67 +58,78 @@ header {
     font-family: Retro;
 }
 
-#boxVs{
-margin-top: 45px;
+#boxVs {
+    margin-top: 45px;
 }
+
 #boxVs span {
     font-size: 50px;
     font-family: Martyric;
-    background-image: linear-gradient(#e01,#fde71f);
+    background-image: linear-gradient(#e01, #fde71f);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
 }
 
+/*CONTAINER PRINCIPAL DO JOGO*/
 #containerGame {
     display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
+    justify-content: space-between;
+    align-items: start;
     height: 100vh;
+    width: 100vw;
 }
 
 /*ESTILO DA LOGO do JOGO*/
-#containerGame #boxLogo{
+#boxLogo {
     display: flex;
     align-items: center;
     width: auto;
     object-fit: contain;
 
 }
-#containerGame #boxLogo #textoLogo{
+
+#boxLogo #textoLogo {
     display: flex;
     flex-direction: column;
     margin-right: -15px;
 }
-#containerGame #boxLogo #textoLogo label{
-   color: #fff;
-   font-family: Retro;
-   font-size: 18px;
+
+#boxLogo #textoLogo label {
+    color: #fff;
+    font-family: Retro;
+    font-size: 18px;
 }
-#containerGame #boxLogo #textoLogo #textoVelha{
-    background-image: linear-gradient(#e01,#fde71f);
+
+#boxLogo #textoLogo #textoVelha {
+    background-image: linear-gradient(#e01, #fde71f);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     font-family: Martyric;
-    font-size:22px;
+    font-size: 22px;
     margin-top: -10px;
     transform: rotate(-10deg);
- }
-#containerGame #boxLogo img{
-width: 60px;
 }
+
+#boxLogo img {
+    width: 60px;
+}
+
 /*----------------------------------------------------------*/
+
+/*A TABELA DO JOGO DA VELHA*/
 #tabelaGame {
     display: grid;
-    grid-template-columns: repeat(3,100px);
-    grid-template-rows: repeat(3,100px);
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
     justify-content: center;
+
+    margin-left: 20px;
 }
 
 .btnTabela {
-    border:5px solid #fff;
+    border: 5px solid #fff;
     width: 100%;
     height: 100%;
     background: none;
@@ -118,65 +138,103 @@ width: 60px;
     color: #fff;
 }
 
-.efeitoMarcacao{
-   animation: fadeMarcacao .3s alternate ease-in-out;
+#tabelaGame #btn1 {
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
 }
 
-#tabelaGame #btn1
- {
-    border-left: none;
-    border-top:none;
-    border-bottom: none;
+#btn2 {
+    border-top: none
 }
-#btn2{
-    border-top:none
-}
-#tabelaGame #btn4,#btn7{
+
+#tabelaGame #btn4,
+#btn7 {
     border-left: none;
     border-bottom: none;
 }
-#tabelaGame #btn2,#btn5,#btn8{
+
+#tabelaGame #btn2,
+#btn5,
+#btn8 {
     border-bottom: none;
     border-left: none;
 }
-#btn3{
+
+#btn3 {
     border: none;
 }
-#btn6, #btn9{
-    border-left:none;
+
+#btn6,
+#btn9 {
+    border-left: none;
     border-right: none;
     border-bottom: none;
 }
 
-#boxJogadorVez{
-    margin-top: 30px;
+/*--------------------------------------*/
+
+/*ESTILIZACAO DO LOCAL ONDE MOSTRA O JOGADOR DA VEZ*/
+#boxJogadorVez {
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
+    justify-content: start;
     align-items: center;
     color: #424141;
+    height: 100vh;
     font-size: 18px;
+    margin-right: 20px;
 }
 
-#boxJogadorVez label{
+#boxJogadorVez label {
     font-size: 40px;
     letter-spacing: 6px;
     font-family: Martyric;
-    background-image: linear-gradient(#e01,#fde71f);
+    background-image: linear-gradient(#e01, #fde71f);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
 }
-#boxJogadorVez span{
+
+#boxJogadorVez span {
     color: #fff;
     font-size: 22px;
     font-family: Retro;
 }
 
+/*CLASSES E MEDIAS E ANIMACOES*/
+.efeitoMarcacao {
+    animation: fadeMarcacao .3s alternate ease-in-out;
+}
+
 @keyframes fadeMarcacao {
-    from{
+    from {
         background: transparent;
     }
-    to{
-        background: radial-gradient(circle,#df620e 0%, #6e4a33 61%, #424141  100%);
+
+    to {
+        background: radial-gradient(circle, #df620e 0%, #6e4a33 61%, #424141 100%);
     }
+}
+
+@media screen and (max-width: 680px) {
+
+    #containerGame {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+    }
+
+    #boxJogadorVez {
+        margin-right: 0;
+        margin-top: 30px;
+    }
+
+    #tabelaGame {
+        margin-left: 0;
+    }
+
+
 }
