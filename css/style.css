@@ -1,0 +1,116 @@
+@font-face {
+    font-family: Martyric ;
+    src: url(../fonts/Martyric.ttf);
+}
+@font-face {
+    font-family: Retro ;
+    src: url(../fonts/Retro.ttf);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    background-color: #424141;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    background: #202020;
+    margin-bottom: 55px;
+}
+
+.containerNomeJogador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    text-align: center;
+    background: #df620e;
+    padding: 5px 20px;
+    
+}
+
+.nomeJogador {
+    font-size: 14px;
+    font-weight: 200;
+    color: #fff;
+    font-family: Retro;
+}
+
+#boxVs{
+margin-top: 45px;
+}
+#boxVs span {
+    font-size: 50px;
+    font-family: Martyric;
+    background-image: linear-gradient(#e01,#fde71f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+#containerGame {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 100vh;
+}
+#containerGame #boxLogo{
+    text-align: center;
+}
+    
+#tabelaGame {
+    display: grid;
+    grid-template-columns: repeat(3,100px);
+    grid-template-rows: repeat(3,100px);
+    justify-content: center;
+}
+
+.btnTabela {
+    border:6px solid #fff;
+    width: 100%;
+    height: 100%;
+    background: none;
+}
+
+#tabelaGame #btn1
+ {
+    border-left: none;
+    border-top:none;
+    border-bottom: none;
+}
+#btn2{
+    border-top:none
+}
+#tabelaGame #btn4,#btn7{
+    border-left: none;
+    border-bottom: none;
+}
+#tabelaGame #btn2,#btn5,#btn8{
+    border-bottom: none;
+    border-left: none;
+}
+#btn3{
+    border: none;
+}
+#btn6, #btn9{
+    border-left:none;
+    border-right: none;
+    border-bottom: none;
+}
+
+#boxJogadorVez{
+    background-color: #e01;
+    align-self: flex-start;
+    color: #fff;
+    font-size: 18px;
+}
