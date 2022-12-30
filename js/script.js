@@ -1,7 +1,7 @@
 const nomeJogador = document.querySelector("#boxJogadorVez span");
 const formJogador = document.querySelector("#boxJogadorVez #formJgd");
 
-
+//posicoes que dao vitoria
 let posicoes = [
     [1, 2, 3],
     [4, 5, 6],
@@ -13,6 +13,7 @@ let posicoes = [
     [3, 5, 7],
 ]
 
+//inicializando as variaveis 
 let formJgd1 = "X";
 let formJgd2 = "0";
 let jogador1 = "Jogador1 ";
@@ -34,43 +35,55 @@ const inicializar = () => {
     //seta o evento de clique para todos os botoes do jogo e atribue a funcao de novaJogada
     document.querySelectorAll("#tabelaGame button").forEach((item)=>{
         item.innerHTML = ""
+        item.classList.remove("efeitoMarcacao");
         item.addEventListener("click",novaJogada)
     })
 }
-
+//
 const novaJogada = (e)=>{
+    e.target.innerHTML = formAtual;
     const index = e.target.getAttribute("id").split("n")[1];
-    e.target.innerHTML = formJgd1;
+    e.target.classList.add("efeitoMarcacao");
     e.target.removeEventListener("click",novaJogada)
-    opcSelecionadas[index] = formJgd1;
-
+    opcSelecionadas[index] = formAtual;
+    
+    //Faz a checkagem da Jogada se tem o ganhador ou empate
     setTimeout(()=>{
-        check()
-    },[100])
-
-    formJogador.textContent = formAtual === formJgd1 ? formJgd2:formJgd1
-    nomeJogador.textContent = jogadorAtual === jogador1 ? jogador2 : jogador1
+        check();
+    },[300]);
+     //passamos a vez do jogador e mostramos ao usuario de quem é a vez
+     formJogador.textContent = formAtual === formJgd1 ? formJgd2:formJgd1
+     nomeJogador.textContent = jogadorAtual === jogador1 ? jogador2 : jogador1
+     formAtual = formAtual === formJgd1 ? formJgd2:formJgd1
+     jogadorAtual = jogadorAtual === jogador1 ? jogador2 : jogador1
 }
 
 const check =()=>{
-    let ultimoMoveJgd = formAtual === formJgd1 ? formJgd2:formJgd1
-
+    const auxFormAtual = formAtual === formJgd1 ? formJgd2:formJgd1
+    //Faz a verificao se ha um ganhador
     const items = opcSelecionadas
     .map((item,i)=>[item,i])
-    .filter((item)=>item[0] === ultimoMoveJgd)
+    .filter((item)=>item[0] === auxFormAtual)
     .map((item)=>item[1])
-
+    //verifica se bate as posicoes ja jogada com as opcoes do array 
     for(pos of posicoes){
         if(pos.every((item)=> items.includes(item))){
-            alert(`O Jogador ${ultimoMoveJgd} ganhou` )
+            alert(`O Jogador ${auxFormAtual} ganhou` )
             inicializar()
             return
         }
     }
+    //faz a verificação se houve um empate 
+    if(opcSelecionadas.filter((item)=>item).length ===9){
+        alert("OPS! Houve Um empate, Vamos de novo!");
+        inicializar();
+        return;
+    }
+  
 
 }
 
 
 
-
+//inicializa o jogo
 inicializar()
