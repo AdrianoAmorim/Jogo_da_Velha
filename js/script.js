@@ -60,6 +60,7 @@ const novaJogada = (e)=>{
 
 const check =()=>{
     const auxFormAtual = formAtual === formJgd1 ? formJgd2:formJgd1
+    const auxjogadorAtual = jogadorAtual === jogador1 ? jogador2 : jogador1
     //Faz a verificao se ha um ganhador
     const items = opcSelecionadas
     .map((item,i)=>[item,i])
@@ -68,7 +69,7 @@ const check =()=>{
     //verifica se bate as posicoes ja jogada com as opcoes do array 
     for(pos of posicoes){
         if(pos.every((item)=> items.includes(item))){
-            alert(`O Jogador ${auxFormAtual} ganhou` )
+            alert(`${auxjogadorAtual} ganhou!!` )
             inicializar()
             return
         }

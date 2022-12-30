@@ -74,7 +74,7 @@ header {
 /*CONTAINER PRINCIPAL DO JOGO*/
 #containerGame {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: start;
     height: 100vh;
     width: 100vw;
@@ -124,8 +124,6 @@ header {
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
     justify-content: center;
-
-    margin-left: 20px;
 }
 
 .btnTabela {
@@ -182,9 +180,8 @@ header {
     justify-content: start;
     align-items: center;
     color: #424141;
-    height: 100vh;
     font-size: 18px;
-    margin-right: 20px;
+    margin-left: 35px;
 }
 
 #boxJogadorVez label {
@@ -222,13 +219,14 @@ header {
 
     #containerGame {
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
         width: auto;
+        margin-top: 30px;
     }
 
     #boxJogadorVez {
-        margin-right: 0;
+        margin-left: 0;
         margin-top: 30px;
     }
 
