@@ -68,10 +68,39 @@ margin-top: 45px;
     align-items: center;
     height: 100vh;
 }
+
+/*ESTILO DA LOGO do JOGO*/
 #containerGame #boxLogo{
-    text-align: center;
+    display: flex;
+    align-items: center;
+    width: auto;
+    object-fit: contain;
+
 }
-    
+#containerGame #boxLogo #textoLogo{
+    display: flex;
+    flex-direction: column;
+    margin-right: -15px;
+}
+#containerGame #boxLogo #textoLogo label{
+   color: #fff;
+   font-family: Retro;
+   font-size: 18px;
+}
+#containerGame #boxLogo #textoLogo #textoVelha{
+    background-image: linear-gradient(#e01,#fde71f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: Martyric;
+    font-size:22px;
+    margin-top: -10px;
+    transform: rotate(-10deg);
+ }
+#containerGame #boxLogo img{
+width: 60px;
+}
+/*----------------------------------------------------------*/
 #tabelaGame {
     display: grid;
     grid-template-columns: repeat(3,100px);
@@ -120,10 +149,27 @@ margin-top: 45px;
 }
 
 #boxJogadorVez{
-    background-color: #e01;
-    align-self: flex-start;
-    color: #fff;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #424141;
     font-size: 18px;
+}
+
+#boxJogadorVez label{
+    font-size: 40px;
+    letter-spacing: 6px;
+    font-family: Martyric;
+    background-image: linear-gradient(#e01,#fde71f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+#boxJogadorVez span{
+    color: #fff;
+    font-size: 22px;
+    font-family: Retro;
 }
 
 @keyframes fadeMarcacao {
@@ -131,6 +177,6 @@ margin-top: 45px;
         background: transparent;
     }
     to{
-        background: radial-gradient(circle,rgba(223,98,14,1)0%, rgba(110,74,51,1) 61%, rgba(66,65,65,1)  100%);
+        background: radial-gradient(circle,#df620e 0%, #6e4a33 61%, #424141  100%);
     }
 }

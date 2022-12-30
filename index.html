@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-   
+
     <title>Jogo da Velha</title>
 </head>
 
@@ -25,7 +25,12 @@
 
     <main id="containerGame">
         <div id="boxLogo">
-            <label>JOGO DA VELHA</label>
+            <div id="textoLogo">
+                <label>JOGO</label>
+                <label>DA</label>
+                <label id="textoVelha">VELHA</label>
+            </div>
+            <img src="./img/avatarLogo.png" alt="avatarLogo">
         </div>
 
 
@@ -42,11 +47,12 @@
 
         </div>
         <div id="boxJogadorVez">
+            <label>É Sua Vez!</label>
             <span>...</span>
             <span id="formJgd">...</span>
-            <label>É Sua Vez!</label>
+
         </div>
-    
+
     </main>
     <script src="./js/script.js" refer></script>
 </body>
