@@ -257,6 +257,15 @@ header {
     color: #df620e;
     text-transform: uppercase;
 }
+#container #boxInputs  #InfoSistema{
+    text-align: center;
+    color: #df620e;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 10px 0;
+      text-transform: uppercase;
+
+}
 
 .btnOk{
     width: 90px;
@@ -276,6 +285,9 @@ header {
 /*CLASSES E MEDIAS E ANIMACOES*/
 .efeitoMarcacao {
     animation: fadeMarcacao .3s alternate ease-in-out;
+}
+.hidden{
+    display: none;
 }
 
 @keyframes fadeMarcacao {

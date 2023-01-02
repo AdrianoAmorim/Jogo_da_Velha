@@ -1,5 +1,7 @@
 const nomeJogador = document.querySelector("#boxJogadorVez span");
 const formJogador = document.querySelector("#boxJogadorVez #formJgd");
+const componentJgd1 = document.getElementById("jgd1")
+const componentJgd2 = document.getElementById("jgd2")
 
 //posicoes que dao vitoria
 let posicoes = [
@@ -16,8 +18,8 @@ let posicoes = [
 //inicializando as variaveis 
 let formJgd1 = "X";
 let formJgd2 = "O";
-let jogador1 = "Jogador1 ";
-let jogador2 = "Jogador2 ";
+let jogador1 = localStorage.getItem("jogador1");
+let jogador2 =  localStorage.getItem("jogador2");
 let jogadorAtual ="";
 let formAtual = ""
 let opcSelecionadas;
@@ -32,6 +34,8 @@ const inicializar = () => {
     formJogador.textContent = formJgd1;
     jogadorAtual = jogador1;
     formAtual = formJgd1;
+    componentJgd1.textContent = jogador1
+    componentJgd2.textContent = jogador2
     //seta o evento de clique para todos os botoes do jogo e atribue a funcao de novaJogada
     document.querySelectorAll("#tabelaGame button").forEach((item)=>{
         item.innerHTML = ""
