@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>Jogo da Velha</title>
+</head>
+
+<body>
+    <header>
+        <div class="containerNomeJogador">
+            <span class="nomeJogador" id="jgd1" >Adriano A</span>
+        </div>
+        <div id="boxVs">
+            <span>VS</span>
+        </div>
+        <div class="containerNomeJogador">
+            <span class="nomeJogador" id="jgd2">Adriano A</span>
+        </div>
+    </header>
+
+
+    <div id="boxLogo">
+        <div id="textoLogo">
+            <label>JOGO</label>
+            <label>DA</label>
+            <label id="textoVelha">VELHA</label>
+        </div>
+        <img src="./img/avatarLogo.png" alt="avatarLogo">
+    </div>
+    <main id="containerGame">
+      
+
+
+        <div id="tabelaGame">
+            <button class="btnTabela" id="btn1"></button>
+            <button class="btnTabela" id="btn2"></button>
+            <button class="btnTabela" id="btn3"></button>
+            <button class="btnTabela" id="btn4"></button>
+            <button class="btnTabela" id="btn5"></button>
+            <button class="btnTabela" id="btn6"></button>
+            <button class="btnTabela" id="btn7"></button>
+            <button class="btnTabela" id="btn8"></button>
+            <button class="btnTabela" id="btn9"></button>
+
+        </div>
+        <div id="boxJogadorVez">
+            <label>É Sua Vez!</label>
+            <span>...</span>
+            <span id="formJgd">...</span>
+
+        </div>
+
+    </main>
+    <script src="./js/game.js"></script>
+</body>
+
+</html>

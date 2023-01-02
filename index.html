@@ -11,51 +11,29 @@
 </head>
 
 <body>
-    <header>
-        <div class="containerNomeJogador">
-            <span class="nomeJogador" id="jgd1">Adriano AM</span>
-        </div>
-        <div id="boxVs">
-            <span>VS</span>
-        </div>
-        <div class="containerNomeJogador">
-            <span class="nomeJogador" id="jgd2">Jogador 2</span>
-        </div>
-    </header>
 
-    
-    <div id="boxLogo">
-        <div id="textoLogo">
-            <label>JOGO</label>
-            <label>DA</label>
-            <label id="textoVelha">VELHA</label>
+    <section id="container">
+        <div id="boxLogo" style="margin-bottom: 20px;">
+            <div id="textoLogo">
+                <label>JOGO</label>
+                <label>DA</label>
+                <label id="textoVelha">VELHA</label>
+            </div>
+            <img src="./img/avatarLogo.png" alt="avatarLogo">
         </div>
-        <img src="./img/avatarLogo.png" alt="avatarLogo">
-    </div>
-    <main id="containerGame">
-      
+        <div id="boxInputs">
+            <label>Jogador 1 - (X) </label>
+            <input class="ipt" id="iptJogador1" type="text" maxlength="9"/>
+            <label>Jogador 2 - (O)</label>
+            <input class="ipt" id="iptJogador2" type="text" maxlength="9"/>
+            <button class="btnOk">OK</button>
+        </div>
+    </section>
 
 
-        <div id="tabelaGame">
-            <button class="btnTabela" id="btn1"></button>
-            <button class="btnTabela" id="btn2"></button>
-            <button class="btnTabela" id="btn3"></button>
-            <button class="btnTabela" id="btn4"></button>
-            <button class="btnTabela" id="btn5"></button>
-            <button class="btnTabela" id="btn6"></button>
-            <button class="btnTabela" id="btn7"></button>
-            <button class="btnTabela" id="btn8"></button>
-            <button class="btnTabela" id="btn9"></button>
 
-        </div>
-        <div id="boxJogadorVez">
-            <label>É Sua Vez!</label>
-            <span>...</span>
-            <span id="formJgd">...</span>
 
-        </div>
 
-    </main>
     <script src="./js/script.js" refer></script>
 </body>
 

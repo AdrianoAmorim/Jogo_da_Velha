@@ -199,6 +199,53 @@ header {
     font-size: 22px;
     font-family: Retro;
 }
+/*ESTILIZACAO DA TELA INICIAL - NOME DOS JOGADORES*/
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+#container #boxInputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 340px;
+}
+#container #boxInputs label{
+    font-size: 16px;
+    color: #fff;
+    font-family: Retro;
+    margin-bottom: 5px;
+}
+#container #boxInputs input{
+    margin-bottom: 10px;
+    outline: none;
+    height: 40px;
+    width: 90%;
+    border-radius: 10px;
+    padding-inline-start: 10px;
+    font-size: 14px;
+    font-family: Retro;
+    text-align: center;
+    color: #df620e;
+    text-transform: uppercase;
+}
+
+.btnOk{
+    width: 90px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-image: linear-gradient(#e01, #fde71f);
+    font-size: 14px;
+    color: #fff;
+    font-weight: 400;
+    font-family: Retro;
+}
 
 /*CLASSES E MEDIAS E ANIMACOES*/
 .efeitoMarcacao {
