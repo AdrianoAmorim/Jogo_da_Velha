@@ -1,13 +1,17 @@
 const nomeJogador = document.querySelector("#boxJogadorVez span");
 const formJogador = document.querySelector("#boxJogadorVez #formJgd");
-const componentJgd1 = document.getElementById("jgd1")
-const componentJgd2 = document.getElementById("jgd2")
-const audioJogada = document.getElementById("audioJogada")
-const audioVitoria = document.getElementById("audioVitoria")
+const componentJgd1 = document.getElementById("jgd1");
+const componentJgd2 = document.getElementById("jgd2");
+const audioJogada = document.getElementById("audioJogada");
+const audioVitoria = document.getElementById("audioVitoria");
 const audioEmpate = document.getElementById("audioEmpate")
 const vitoriaJgd1 = document.getElementById("vitoriaJgd1");
 const vitoriaJgd2 = document.getElementById("vitoriaJgd2");
-
+const containerAlert = document.getElementById("containerAlert");
+const imgAlert = document.querySelector("#conteudoAlert img");
+const textoAlert = document.querySelector("#conteudoAlert span");
+const btnVoltarAlert  = document.getElementById("btnCancelar");
+const btnJogarAlert  = document.getElementById("btnJogar");
 //posicoes que dao vitoria
 let posicoes = [
     [1, 2, 3],
@@ -52,7 +56,8 @@ const inicializar = () => {
         item.addEventListener("click", novaJogada)
     })
 }
-//VERIFICA QUEM E O GANHADOR E SETA A VITORIA NO PLACAR
+/*VERIFICA QUEM E O GANHADOR E SETA A VITORIA NO PLACAR e chama o alert p 
+o USUARIO DESCIDIR SE QUER JOGAR OU VOLTAR*/
 const setVitoria = (jogador) => {
     let total = 0
     if (jogador === jogador1) {
@@ -63,6 +68,10 @@ const setVitoria = (jogador) => {
         total = parseInt(vitoriaJgd2.textContent);
         vitoriaJgd2.textContent = (total + 1).toString();
     }
+    //SETA AS INFORMACOES DO ALERT DE VITORIA
+    imgAlert.setAttribute("src","../img/avatarVitoria.png");
+    textoAlert.textContent = `${jogador} é o Vencedor! Bora Jogar de Novo?`
+    containerAlert.classList.remove("hidden");
 }
 
 //FAZ UMA NOVA JOGADA - MARCA NA TABELA A OPCAO ESCOLHIDA E CHAMA A FUNCAO Q CHECA SE A VENCENDOR OU EMPATE
@@ -101,7 +110,6 @@ const check = () => {
             jogoGanho = true;
             setTimeout(() => {
                 console.log("dentro da vitoria")
-                alert(`${auxjogadorAtual} ganhou!!`);
                 setVitoria(auxjogadorAtual)
                 inicializar()
                 return
@@ -116,7 +124,9 @@ const check = () => {
             audioEmpate.play()
             console.log("dentro do empate")
             setTimeout(() => {
-                alert("OPS! Houve Um empate, Vamos de novo!");
+                imgAlert.setAttribute("src","../img/avatarEmpate.png");
+                textoAlert.textContent = "OPS! Houve um Empate, Bora Resolver isso?"
+                containerAlert.classList.remove("hidden");
                 inicializar();
                 return;
             }, [100])
