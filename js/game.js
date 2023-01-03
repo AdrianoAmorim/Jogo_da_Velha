@@ -4,14 +4,15 @@ const componentJgd1 = document.getElementById("jgd1");
 const componentJgd2 = document.getElementById("jgd2");
 const audioJogada = document.getElementById("audioJogada");
 const audioVitoria = document.getElementById("audioVitoria");
-const audioEmpate = document.getElementById("audioEmpate")
+const audioEmpate = document.getElementById("audioEmpate");
+const audioJogar = document.getElementById("audioEntrar");
 const vitoriaJgd1 = document.getElementById("vitoriaJgd1");
 const vitoriaJgd2 = document.getElementById("vitoriaJgd2");
 const containerAlert = document.getElementById("containerAlert");
 const imgAlert = document.querySelector("#conteudoAlert img");
 const textoAlert = document.querySelector("#conteudoAlert span");
-const btnVoltarAlert  = document.getElementById("btnCancelar");
-const btnJogarAlert  = document.getElementById("btnJogar");
+const btnVoltarAlert = document.getElementById("btnCancelar");
+const btnJogarAlert = document.getElementById("btnJogar");
 //posicoes que dao vitoria
 let posicoes = [
     [1, 2, 3],
@@ -64,14 +65,15 @@ const setVitoria = (jogador) => {
         total = parseInt(vitoriaJgd1.textContent);
         vitoriaJgd1.textContent = (total + 1).toString();
     }
-     if (jogador === jogador2) {
+    if (jogador === jogador2) {
         total = parseInt(vitoriaJgd2.textContent);
         vitoriaJgd2.textContent = (total + 1).toString();
     }
     //SETA AS INFORMACOES DO ALERT DE VITORIA
-    imgAlert.setAttribute("src","../img/avatarVitoria.png");
+    imgAlert.setAttribute("src", "../img/avatarVitoria.png");
     textoAlert.textContent = `${jogador} é o Vencedor! Bora Jogar de Novo?`
     containerAlert.classList.remove("hidden");
+    containerAlert.classList.add("fadeIn");
 }
 
 //FAZ UMA NOVA JOGADA - MARCA NA TABELA A OPCAO ESCOLHIDA E CHAMA A FUNCAO Q CHECA SE A VENCENDOR OU EMPATE
@@ -109,9 +111,7 @@ const check = () => {
             audioVitoria.play();
             jogoGanho = true;
             setTimeout(() => {
-                console.log("dentro da vitoria")
-                setVitoria(auxjogadorAtual)
-                inicializar()
+                setVitoria(auxjogadorAtual);
                 return
             }, [100]);
 
@@ -119,15 +119,13 @@ const check = () => {
     }
     //faz a verificação se houve um empate
     if (!jogoGanho) {
-        console.log("dentro do empate1")
         if (opcSelecionadas.filter((item) => item).length === 9) {
-            audioEmpate.play()
-            console.log("dentro do empate")
+            audioEmpate.play();
             setTimeout(() => {
-                imgAlert.setAttribute("src","../img/avatarEmpate.png");
+                imgAlert.setAttribute("src", "../img/avatarEmpate.png");
                 textoAlert.textContent = "OPS! Houve um Empate, Bora Resolver isso?"
                 containerAlert.classList.remove("hidden");
-                inicializar();
+                containerAlert.classList.add("fadeIn");
                 return;
             }, [100])
 
@@ -136,6 +134,25 @@ const check = () => {
 
 
 }
+
+//EVENTO DE CLICK NO BOTAO ALERT PARA VOLTAR NA TELA DE INICIO
+btnVoltarAlert.addEventListener("click",()=>{
+    audioJogar.play();
+    setTimeout(()=>{
+        window.location.replace("../index.html");
+    },[100])
+})
+//EVENTO DE CLICK NO BOTAO DE JOGAR NOVAMENTE DO ALERT P CONTINUAR JOGANDO
+btnJogarAlert.addEventListener("click",()=>{
+    inicializar();
+    containerAlert.classList.remove("fadeIn");
+    audioJogar.play();
+    setTimeout(() => {
+    containerAlert.classList.add("hidden");
+    }, [100]);
+})
+
+
 
 
 

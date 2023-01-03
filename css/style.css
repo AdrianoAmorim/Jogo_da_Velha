@@ -396,6 +396,9 @@ header {
 .hidden {
     display: none !important;
 }
+.fadeIn{
+    animation: fadeIn .3s ease-in-out;
+}
 
 @keyframes fadeMarcacao {
     from {
@@ -410,6 +413,9 @@ header {
 @keyframes fadeIn {
     from {
         opacity: 0;
+            }
+            to{
+                opacity: 1;
             }
 }
 
