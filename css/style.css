@@ -26,6 +26,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #424141;
+    height: 100vh;
 }
 
 /*cabecalho do Game*/

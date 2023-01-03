@@ -28,6 +28,7 @@ let opcSelecionadas;
 
 //Função para inicializar o jogo - zera os buttons e seta o nome do primeiro jogador
 const inicializar = () => {
+    //DIMINUI O SOM DE JOGADA 
     if(audioJogada.volume > 0.8){
         audioJogada.volume -= 0.8;
     }
