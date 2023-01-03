@@ -20,8 +20,6 @@ const validarCampos = (inp1, inp2) => {
         } else {
             localStorage.setItem("jogador1", inp1.toUpperCase());
             localStorage.setItem("jogador2", inp2.toUpperCase());
-            localStorage.setItem("vitoriasJgd1",0);
-            localStorage.setItem("vitoriasJgd2",0);
             return true
         }
 

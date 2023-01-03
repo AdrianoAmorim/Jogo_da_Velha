@@ -52,10 +52,16 @@ const inicializar = () => {
         item.addEventListener("click", novaJogada)
     })
 }
+//VERIFICA QUEM E O GANHADOR E SETA A VITORIA NO PLACAR
 const setVitoria = (jogador) => {
+    let total = 0
     if (jogador === jogador1) {
-        const total = parseInt(vitoriaJgd1.textContent);
-        console.log(total)
+        total = parseInt(vitoriaJgd1.textContent);
+        vitoriaJgd1.textContent = (total + 1).toString();
+    }
+     if (jogador === jogador2) {
+        total = parseInt(vitoriaJgd2.textContent);
+        vitoriaJgd2.textContent = (total + 1).toString();
     }
 }
 
