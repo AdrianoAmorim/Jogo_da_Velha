@@ -2,10 +2,15 @@ const inpJogador1 = document.getElementById("iptJogador1");
 const inpJogador2 = document.getElementById("iptJogador2");
 const btnOk = document.getElementById("btnOkIniciarPartida");
 const infoSistema = document.getElementById("InfoSistema");
+const audioButton = document.getElementById("audioButton");
 
 
 const resetStorage = () => {
     localStorage.clear();
+}
+
+const audioEntrarJogo = () =>{
+ audioButton.play()
 }
 
 const validarCampos = (inp1, inp2) => {
@@ -30,7 +35,8 @@ const iniciarPartida = () => {
 
     const returnValidacao = validarCampos(nomeJgd1, nomeJgd2);
     if (returnValidacao) {
-        window.location.replace("./game.html");
+        audioEntrarJogo();
+        //window.location.replace("./game.html");
     }
 }
 
