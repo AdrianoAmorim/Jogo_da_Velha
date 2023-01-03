@@ -70,23 +70,27 @@ header {
     -webkit-background-clip: text;
     color: transparent;
 }
+
 /*ESTILOS DO CAMPO DE VITORIAS*/
-#boxVitorias{
+#boxVitorias {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
 }
-#boxVitorias .containerJgd{
+
+#boxVitorias .containerJgd {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#boxVitorias img{
+
+#boxVitorias img {
     width: 24px;
     margin: 10px;
 }
-#boxVitorias span{
+
+#boxVitorias span {
     color: #fff;
     font-size: 20px;
     font-family: Retro;
@@ -221,8 +225,9 @@ header {
     font-size: 22px;
     font-family: Retro;
 }
+
 /*ESTILIZACAO DA TELA INICIAL - NOME DOS JOGADORES*/
-#container{
+#container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -231,7 +236,8 @@ header {
     width: 100vw;
     margin-top: -30px;
 }
-#boxCredito{
+
+#boxCredito {
     position: absolute;
     top: 10px;
     margin-top: 20px;
@@ -240,33 +246,38 @@ header {
     font-weight: 400;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-#boxCredito a{
+
+#boxCredito a {
     color: #df620e;
     text-decoration: none;
 }
-#boxCredito a:hover{
+
+#boxCredito a:hover {
     color: #fff;
     text-decoration: none;
 }
-#boxCredito a:visited{
+
+#boxCredito a:visited {
     color: #df620e;
 }
 
 
-#container #boxInputs{
+#container #boxInputs {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 340px;
 }
-#container #boxInputs label{
+
+#container #boxInputs label {
     font-size: 16px;
     color: #fff;
     font-family: Retro;
     margin-bottom: 5px;
 }
-#container #boxInputs input{
+
+#container #boxInputs input {
     margin-bottom: 10px;
     outline: none;
     height: 40px;
@@ -279,37 +290,111 @@ header {
     color: #df620e;
     text-transform: uppercase;
 }
-#container #boxInputs  #InfoSistema{
+
+#container #boxInputs #InfoSistema {
     text-align: center;
     color: #df620e;
     font-size: 14px;
     font-weight: 600;
     margin: 10px 0;
-      text-transform: uppercase;
+    text-transform: uppercase;
 
 }
 
-.btnOk{
+.btnOk {
     width: 90px;
     height: 40px;
     border-radius: 10px;
     border: none;
-    background-image: linear-gradient(#e01, #fde71f);
+    background-image: linear-gradient(#e01, #dac615);
     font-size: 14px;
     color: #fff;
     font-weight: 400;
     font-family: Retro;
 }
-.btnOk:active{
+
+.btnOk:active {
     background-image: linear-gradient(rgb(202, 2, 15), #bba90c);
+}
+
+/*------------------------*/
+/*ESTILIZACAO DO ALERT DA TELA DO GAME*/
+#containerAlert {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4241417A;
+}
+
+#containerAlert #boxAlert {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: #202020;
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#containerAlert #boxAlert #headerAlert {
+    background-color: #df620e;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-family: Retro;
+    font-size: 22px;
+    font-weight: 100;
+}
+
+#containerAlert #boxAlert #conteudoAlert {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    width: 90%;
+}
+#containerAlert #boxAlert #conteudoAlert img{
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+#containerAlert #boxAlert #conteudoAlert span {
+    color: #fff;
+    font-family: Retro;
+    font-weight: 100;
+    font-size: 16px;
+    text-align: center;
+}
+
+#containerAlert #boxAlert #buttonAlert {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+#containerAlert #boxAlert #buttonAlert button {
+    width: 120px;
+    padding: 0 10px;
+    font-size: 14px;
+}
+#containerAlert #boxAlert #buttonAlert #btnCancelar{
+    background: #e01;
 }
 
 /*CLASSES E MEDIAS E ANIMACOES*/
 .efeitoMarcacao {
     animation: fadeMarcacao .3s alternate ease-in-out;
 }
-.hidden{
-    display: none;
+
+.hidden {
+    display: none !important;
 }
 
 @keyframes fadeMarcacao {
@@ -320,6 +405,12 @@ header {
     to {
         background: radial-gradient(circle, #df620e 0%, #6e4a33 61%, #424141 100%);
     }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+            }
 }
 
 @media screen and (max-width: 680px) {
