@@ -2,6 +2,7 @@ const nomeJogador = document.querySelector("#boxJogadorVez span");
 const formJogador = document.querySelector("#boxJogadorVez #formJgd");
 const componentJgd1 = document.getElementById("jgd1")
 const componentJgd2 = document.getElementById("jgd2")
+const audioJogada = document.getElementById("audioJogada")
 
 //posicoes que dao vitoria
 let posicoes = [
@@ -27,6 +28,9 @@ let opcSelecionadas;
 
 //Função para inicializar o jogo - zera os buttons e seta o nome do primeiro jogador
 const inicializar = () => {
+    if(audioJogada.volume > 0.8){
+        audioJogada.volume -= 0.8;
+    }
     //usada para guardar as opções ja marcadas no jogo
     opcSelecionadas =[];
     //seta o nome e a forma do jogador da vez
@@ -45,6 +49,7 @@ const inicializar = () => {
 }
 //
 const novaJogada = (e)=>{
+    audioJogada.play();
     e.target.innerHTML = formAtual;
     const index = e.target.getAttribute("id").split("n")[1];
     e.target.classList.add("efeitoMarcacao");
