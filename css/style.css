@@ -37,7 +37,6 @@ header {
     height: 50px;
     width: 100%;
     background: #202020;
-    margin-bottom: 45px;
 }
 
 .containerNomeJogador {
@@ -70,6 +69,28 @@ header {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+}
+/*ESTILOS DO CAMPO DE VITORIAS*/
+#boxVitorias{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+#boxVitorias .containerJgd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#boxVitorias img{
+    width: 24px;
+    margin: 10px;
+}
+#boxVitorias span{
+    color: #fff;
+    font-size: 20px;
+    font-family: Retro;
+    font-weight: 500;
 }
 
 /*CONTAINER PRINCIPAL DO JOGO*/
