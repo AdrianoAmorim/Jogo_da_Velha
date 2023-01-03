@@ -5,6 +5,8 @@ const componentJgd2 = document.getElementById("jgd2")
 const audioJogada = document.getElementById("audioJogada")
 const audioVitoria = document.getElementById("audioVitoria")
 const audioEmpate = document.getElementById("audioEmpate")
+const vitoriaJgd1 = document.getElementById("vitoriaJgd1");
+const vitoriaJgd2 = document.getElementById("vitoriaJgd2");
 
 //posicoes que dao vitoria
 let posicoes = [
@@ -50,7 +52,14 @@ const inicializar = () => {
         item.addEventListener("click", novaJogada)
     })
 }
-//
+const setVitoria = (jogador) => {
+    if (jogador === jogador1) {
+        const total = parseInt(vitoriaJgd1.textContent);
+        console.log(total)
+    }
+}
+
+//FAZ UMA NOVA JOGADA - MARCA NA TABELA A OPCAO ESCOLHIDA E CHAMA A FUNCAO Q CHECA SE A VENCENDOR OU EMPATE
 const novaJogada = (e) => {
     audioJogada.play();
     e.target.innerHTML = formAtual;
@@ -62,15 +71,16 @@ const novaJogada = (e) => {
     //Faz a checkagem da Jogada se tem o ganhador ou empate
     setTimeout(() => {
         check();
-    }, [300]);
+    }, [100]);
     //passamos a vez do jogador e mostramos ao usuario de quem é a vez
     formJogador.textContent = formAtual === formJgd1 ? formJgd2 : formJgd1
     nomeJogador.textContent = jogadorAtual === jogador1 ? jogador2 : jogador1
     formAtual = formAtual === formJgd1 ? formJgd2 : formJgd1
     jogadorAtual = jogadorAtual === jogador1 ? jogador2 : jogador1
 }
-
+//CHECA A JOGADA SE HA UM GANHADOR OU EMPATE
 const check = () => {
+    let jogoGanho = false;
     const auxFormAtual = formAtual === formJgd1 ? formJgd2 : formJgd1
     const auxjogadorAtual = jogadorAtual === jogador1 ? jogador2 : jogador1
     //Faz a verificao se ha um ganhador
@@ -82,23 +92,30 @@ const check = () => {
     for (pos of posicoes) {
         if (pos.every((item) => items.includes(item))) {
             audioVitoria.play();
+            jogoGanho = true;
             setTimeout(() => {
-                alert(`${auxjogadorAtual} ganhou!!`)
+                console.log("dentro da vitoria")
+                alert(`${auxjogadorAtual} ganhou!!`);
+                setVitoria(auxjogadorAtual)
                 inicializar()
                 return
             }, [100]);
 
         }
     }
-    //faz a verificação se houve um empate 
-    if (opcSelecionadas.filter((item) => item).length === 9) {
-        audioEmpate.play()
-        setTimeout(() => {
-            alert("OPS! Houve Um empate, Vamos de novo!");
-            inicializar();
-            return;
-        }, [100])
+    //faz a verificação se houve um empate
+    if (!jogoGanho) {
+        console.log("dentro do empate1")
+        if (opcSelecionadas.filter((item) => item).length === 9) {
+            audioEmpate.play()
+            console.log("dentro do empate")
+            setTimeout(() => {
+                alert("OPS! Houve Um empate, Vamos de novo!");
+                inicializar();
+                return;
+            }, [100])
 
+        }
     }
 
 
