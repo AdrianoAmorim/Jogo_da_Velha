@@ -144,6 +144,7 @@ const check = () => {
 //EVENTO DE CLICK NO BOTAO ALERT PARA VOLTAR NA TELA DE INICIO
 btnVoltarAlert.addEventListener("click",()=>{
     audioJogar.play();
+    musicaFundo.stop();
     setTimeout(()=>{
         window.location.replace("../index.html");
     },[100])
