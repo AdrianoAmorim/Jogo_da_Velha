@@ -6,6 +6,7 @@ const audioJogada = document.getElementById("audioJogada");
 const audioVitoria = document.getElementById("audioVitoria");
 const audioEmpate = document.getElementById("audioEmpate");
 const audioJogar = document.getElementById("audioEntrar");
+const musicaFundo = document.getElementById("musicaFundo");
 const vitoriaJgd1 = document.getElementById("vitoriaJgd1");
 const vitoriaJgd2 = document.getElementById("vitoriaJgd2");
 const containerAlert = document.getElementById("containerAlert");
@@ -13,6 +14,7 @@ const imgAlert = document.querySelector("#conteudoAlert img");
 const textoAlert = document.querySelector("#conteudoAlert span");
 const btnVoltarAlert = document.getElementById("btnCancelar");
 const btnJogarAlert = document.getElementById("btnJogar");
+
 //posicoes que dao vitoria
 let posicoes = [
     [1, 2, 3],
@@ -37,9 +39,13 @@ let opcSelecionadas;
 
 //Função para inicializar o jogo - zera os buttons e seta o nome do primeiro jogador
 const inicializar = () => {
+    musicaFundo.play();
     //DIMINUI O SOM DE JOGADA 
     if (audioJogada.volume > 0.8) {
         audioJogada.volume -= 0.8;
+    }
+    if (musicaFundo.volume > 0.6) {
+        musicaFundo.volume -= 0.6;
     }
     //usada para guardar as opções ja marcadas no jogo
     opcSelecionadas = [];
@@ -145,8 +151,8 @@ btnVoltarAlert.addEventListener("click",()=>{
 //EVENTO DE CLICK NO BOTAO DE JOGAR NOVAMENTE DO ALERT P CONTINUAR JOGANDO
 btnJogarAlert.addEventListener("click",()=>{
     inicializar();
-    containerAlert.classList.remove("fadeIn");
     audioJogar.play();
+    containerAlert.classList.remove("fadeIn");
     setTimeout(() => {
     containerAlert.classList.add("hidden");
     }, [100]);

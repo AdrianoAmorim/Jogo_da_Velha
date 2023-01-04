@@ -9,6 +9,7 @@ const audioError = document.getElementById("audioError");
 const resetStorage = () => {
     localStorage.clear();
 }
+
 /*VALIDA SE OS CAMPOS ESTAO DE ACORDO COM AS REGRAS, SE OK
 SETA AS INFORMACOES NO LOCAL STORAGE E RETORNA TRUE PARA LIBERAR O ACESSO AO JOGO*/
 const validarCampos = (inp1, inp2) => {
