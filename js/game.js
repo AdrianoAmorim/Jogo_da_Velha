@@ -6,7 +6,6 @@ const audioJogada = document.getElementById("audioJogada");
 const audioVitoria = document.getElementById("audioVitoria");
 const audioEmpate = document.getElementById("audioEmpate");
 const audioJogar = document.getElementById("audioEntrar");
-const musicaFundo = document.getElementById("musicaFundo");
 const vitoriaJgd1 = document.getElementById("vitoriaJgd1");
 const vitoriaJgd2 = document.getElementById("vitoriaJgd2");
 const containerAlert = document.getElementById("containerAlert");
@@ -39,13 +38,9 @@ let opcSelecionadas;
 
 //Função para inicializar o jogo - zera os buttons e seta o nome do primeiro jogador
 const inicializar = () => {
-    musicaFundo.play();
     //DIMINUI O SOM DE JOGADA 
     if (audioJogada.volume > 0.8) {
         audioJogada.volume -= 0.8;
-    }
-    if (musicaFundo.volume > 0.6) {
-        musicaFundo.volume -= 0.6;
     }
     //usada para guardar as opções ja marcadas no jogo
     opcSelecionadas = [];
@@ -144,7 +139,6 @@ const check = () => {
 //EVENTO DE CLICK NO BOTAO ALERT PARA VOLTAR NA TELA DE INICIO
 btnVoltarAlert.addEventListener("click",()=>{
     audioJogar.play();
-    musicaFundo.stop();
     setTimeout(()=>{
         window.location.replace("../index.html");
     },[100])
